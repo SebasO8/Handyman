@@ -1,15 +1,17 @@
 package com.handyman.Handyman.core.gateways;
 
+import com.handyman.Handyman.core.domain.service.Service;
 import com.handyman.Handyman.core.domain.serviceReport.ServiceReport;
+import com.handyman.Handyman.core.domain.technician.Technician;
 
 import java.util.List;
 
 public interface ServiceReportRepository {
     List<ServiceReport> queryWeek(int weekNumber);
 
-    List<ServiceReport> queryTechnicians(int weekNumber);
+    List<Technician> queryTechnicians();
 
-    List<ServiceReport> queryServices(int weekNumber);
+    List<Service> queryServices();
 
     void store(ServiceReport serviceReport);
 }
