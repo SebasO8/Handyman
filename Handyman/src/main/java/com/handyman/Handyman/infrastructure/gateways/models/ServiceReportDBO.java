@@ -10,21 +10,22 @@ import org.joda.time.DateTime;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class ServiceReportDBO {
     private String id;
     private String technicianId;
     private String serviceId;
-    private String startDate;
-    private String finalDate;
+    private Timestamp startDate;
+    private Timestamp finalDate;
 
 
     public ServiceReportDBO(String id, String technicianId, String serviceId, String startDate, String finalDate) {
         this.id = id;
         this.technicianId = technicianId;
         this.serviceId = serviceId;
-        this.startDate = startDate;
-        this.finalDate = finalDate;
+        this.startDate = Timestamp.valueOf(startDate);
+        this.finalDate = Timestamp.valueOf(finalDate);
     }
 
     public ServiceReportDBO() {
@@ -86,19 +87,19 @@ public class ServiceReportDBO {
         this.serviceId = serviceId;
     }
 
-    public String getStartDate() {
+    public Timestamp getStartDate() {
         return startDate;
     }
 
     public void setStartDate(String startDate) {
-        this.startDate = startDate;
+        this.startDate = Timestamp.valueOf(startDate);
     }
 
-    public String getFinalDate() {
+    public Timestamp getFinalDate() {
         return finalDate;
     }
 
     public void setFinalDate(String finalDate) {
-        this.finalDate = finalDate;
+        this.finalDate = Timestamp.valueOf(finalDate);
     }
 }

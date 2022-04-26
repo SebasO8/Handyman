@@ -56,9 +56,23 @@ public class ServiceReportServices {
     public List<TechnicianDTO> queryTechnicians(){
         List<Technician> technicians = repository.queryTechnicians();
         List<TechnicianDTO> result = new ArrayList<>();
-
         for(Technician technician: technicians){
             TechnicianDTO dto = TechnicianDTO.fromDomain(technician);
+            result.add(dto);
+        }
+        return result;
+    }
+
+    public List<ServiceReportDTO> queryWeek(String idTechnician, String startDate, String startDateLimit, String finalDate){
+        List<ServiceReport> serviceReports = repository.queryWeek(
+                idTechnician,
+                startDate,
+                startDateLimit,
+                finalDate
+        );
+        List<ServiceReportDTO> result = new ArrayList<>();
+        for(ServiceReport serviceReport: serviceReports){
+            ServiceReportDTO dto = ServiceReportDTO.fromDomain(serviceReport);
             result.add(dto);
         }
         return result;
